@@ -32,6 +32,12 @@
         #whatsapp-btn:hover {
             background-color: #128C7E; /* Darker green on hover */
         }
+
+        .timer {
+            text-align: center;
+            font-size: 18px;
+            margin-bottom: 20px;
+        }
     </style>
 </head>
 <body>
@@ -43,6 +49,12 @@
                     <p class="text-center"><strong>Summary:</strong></p>
                     <p id="summary"></p>
                 </div>
+
+                <!-- Countdown Timer -->
+                <div class="timer">
+                    Time left: <span id="countdown">20:00</span>
+                </div>
+
                 <h4>Account Details</h4>
                 <p>Please transfer the total amount to the following account details:</p>
                 <ul>
@@ -75,6 +87,28 @@
 
             // Set the current year in the footer
             document.getElementById('year').textContent = new Date().getFullYear();
+
+            // Countdown timer logic
+            let minutes = 20;
+            let seconds = 0;
+
+            const countdownInterval = setInterval(function () {
+                document.getElementById('countdown').textContent = 
+                    minutes + ":" + (seconds < 10 ? "0" + seconds : seconds);
+
+                seconds--;
+
+                if (seconds < 0 && minutes > 0) {
+                    minutes--;
+                    seconds = 59;
+                }
+
+                if (minutes === 0 && seconds === 0) {
+                    clearInterval(countdownInterval);
+                    alert("Sorry, Time up.");
+                    window.location.href = "https://tinyurl.com/nibcyf-movie-night";
+                }
+            }, 1000);
         });
     </script>
 </body>
