@@ -88,12 +88,6 @@
             // Set the current year in the footer
             document.getElementById('year').textContent = new Date().getFullYear();
 
-            // Check if the user has already been timed out
-            if (sessionStorage.getItem('sessionExpired') === 'true') {
-                window.location.href = "https://tinyurl.com/nibcyf-movie-night";
-                return;
-            }
-
             // Countdown timer logic
             let minutes = 10;
             let seconds = 0;
@@ -111,7 +105,6 @@
 
                 if (minutes === 0 && seconds === 0) {
                     clearInterval(countdownInterval);
-                    sessionStorage.setItem('sessionExpired', 'true');
                     alert("Sorry, Time up.");
                     window.location.href = "https://tinyurl.com/nibcyf-movie-night";
                 }
