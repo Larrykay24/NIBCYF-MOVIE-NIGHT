@@ -90,7 +90,7 @@
 
             // Check if the user refreshes the page or timer has expired
             if (performance.navigation.type === performance.navigation.TYPE_RELOAD) {
-                window.location.href = "https://tinyurl.com/nibcyf-movie-night";
+                window.location.href = "https://nibcyf-movie-night.vercel.app/";
                 return;
             }
 
@@ -112,7 +112,7 @@
                 if (minutes === 0 && seconds === 0) {
                     clearInterval(countdownInterval);
                     alert("Sorry, Time up.");
-                    window.location.href = "https://tinyurl.com/nibcyf-movie-night";
+                    window.location.href = "https://nibcyf-movie-night.vercel.app/";
                 }
             }, 1000);
         });
