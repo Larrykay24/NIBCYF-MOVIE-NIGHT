@@ -96,57 +96,62 @@
 
         /* Notification Styles */
         .notification-box {
-            height: 150px; /* Adjust height as needed */
-            overflow: hidden;
-            position: relative;
-            border: 1px solid #ddd;
-            border-radius: 5px;
-            background-color: #f9f9f9;
-            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-            margin-top: 20px;
-        }
+    height: 150px; /* Adjust height as needed */
+    overflow: hidden;
+    position: relative;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    background-color: #f9f9f9;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    margin-top: 20px;
+}
 
-        .notification {
-            display: flex;
-            align-items: center;
-            padding: 10px;
-            border-bottom: 1px solid #eee;
-            animation: scroll 10s linear infinite;
-        }
+.notification-wrapper {
+    display: flex;
+    flex-direction: column;
+    animation: scroll 20s linear infinite; /* Adjust duration as needed */
+}
 
-        .notification:last-child {
-            border-bottom: none;
-        }
+.notification {
+    display: flex;
+    align-items: center;
+    padding: 10px;
+    border-bottom: 1px solid #eee;
+}
 
-        .user-icon {
-            width: 30px;
-            height: 30px;
-            border-radius: 50%;
-            margin-right: 10px;
-        }
+.notification:last-child {
+    border-bottom: none;
+}
 
-        .notification-text {
-            display: flex;
-            flex-direction: column;
-        }
+.user-icon {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    margin-right: 10px;
+}
 
-        .notification-text p {
-            margin: 0;
-        }
+.notification-text {
+    display: flex;
+    flex-direction: column;
+}
 
-        .notification-text span {
-            color: #888;
-            font-size: 0.9em;
-        }
+.notification-text p {
+    margin: 0;
+}
 
-        @keyframes scroll {
-            0% {
-                transform: translateY(100%);
-            }
-            100% {
-                transform: translateY(-100%);
-            }
-        }
+.notification-text span {
+    color: #888;
+    font-size: 0.9em;
+}
+
+@keyframes scroll {
+    0% {
+        transform: translateY(0);
+    }
+    100% {
+        transform: translateY(-100%);
+    }
+}
     </style>
 </head>
 <body>
@@ -174,6 +179,7 @@
             <!-- Notification Box -->
             <div id="notification-container" class="container mt-4">
                 <div class="notification-box">
+                     <div class="notification-wrapper">
                     <!-- Example notifications -->
                     <div class="notification">
                         <img src="user.png" class="user-icon">
@@ -219,6 +225,7 @@
                     </div>
                     <!-- Add more notifications as needed -->
                 </div>
+            </div>
             </div>
         </main>
         <br>
