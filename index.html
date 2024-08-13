@@ -93,6 +93,60 @@
             padding: 10px;
             font-size: 14px;
         }
+
+        /* Notification Styles */
+        .notification-box {
+            height: 150px; /* Adjust height as needed */
+            overflow: hidden;
+            position: relative;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            background-color: #f9f9f9;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            margin-top: 20px;
+        }
+
+        .notification {
+            display: flex;
+            align-items: center;
+            padding: 10px;
+            border-bottom: 1px solid #eee;
+            animation: scroll 10s linear infinite;
+        }
+
+        .notification:last-child {
+            border-bottom: none;
+        }
+
+        .user-icon {
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            margin-right: 10px;
+        }
+
+        .notification-text {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .notification-text p {
+            margin: 0;
+        }
+
+        .notification-text span {
+            color: #888;
+            font-size: 0.9em;
+        }
+
+        @keyframes scroll {
+            0% {
+                transform: translateY(100%);
+            }
+            100% {
+                transform: translateY(-100%);
+            }
+        }
     </style>
 </head>
 <body>
@@ -117,6 +171,34 @@
                 </div>
                 <button id="get-ticket-btn" class="btn">Get Ticket</button>
             </section>
+            <!-- Notification Box -->
+            <div id="notification-container" class="container mt-4">
+                <div class="notification-box">
+                    <!-- Example notifications -->
+                    <div class="notification">
+                        <img src="https://www.flaticon.com/free-icons/user" alt="User Icon" class="user-icon">
+                        <div class="notification-text">
+                            <p>A User purchased tickets to the movie night</p>
+                            <span>Just now</span>
+                        </div>
+                    </div>
+                    <div class="notification">
+                        <img src="user-icon.png" alt="User Icon" class="user-icon">
+                        <div class="notification-text">
+                            <p>Another User bought tickets</p>
+                            <span>7 mins ago</span>
+                        </div>
+                    </div>
+                    <div class="notification">
+                        <img src="user-icon.png" alt="User Icon" class="user-icon">
+                        <div class="notification-text">
+                            <p>Another User bought tickets</p>
+                            <span>10 mins ago</span>
+                        </div>
+                    </div>
+                    <!-- Add more notifications as needed -->
+                </div>
+            </div>
         </main>
         <br>
         <br>
