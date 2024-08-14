@@ -323,7 +323,7 @@
             document.getElementById('get-ticket-btn').addEventListener('click', () => {
                 const ticketPrice = parseInt(document.getElementById('ticket-price').textContent, 10);
                 const totalCost = quantity * ticketPrice;
-                window.location.href = `purchase.html?quantity=${quantity}&totalCost=${totalCost}`;
+                window.location.href = `https://nibcyf-movie-night.vercel.app/purchase.html?quantity=${quantity}&totalCost=${totalCost}`;
             });
 
             // Set the current year in the footer
