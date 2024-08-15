@@ -63,46 +63,54 @@
                     <li><strong>Account Number:</strong> 9073114148</li>
                 </ul>
                 <div class="mt-4">
-                    <p>After transferring, click the button below to send the transaction receipt:</p>
-                    <a id="whatsapp-btn" class="btn btn-block" href="https://wa.me/+2348107725001?text=I%20have%20paid%20for%20movie%20tickets" target="_blank">Send Receipt</a>
+                    <p>After transferring, upload your transaction receipt (JPG/PNG) below:</p>
+                    
+                    <!-- FormSubmit form -->
+                    <form action="https://formsubmit.co/www.nibcmagboro@gmail.com" method="POST" enctype="multipart/form-data">
+                        <!-- Hidden input to avoid spam -->
+                        <input type="hidden" name="_captcha" value="false">
+                        <!-- Hidden input for redirecting -->
+                        <input type="hidden" name="_next" value="https://nibcyf-movie-night.vercel.app/success.html">
+                        
+                        <div class="form-group">
+                            <label for="receipt">Upload Receipt (JPG/PNG):</label>
+                            <input type="file" class="form-control" id="receipt" accept="image/jpeg, image/png" name="receipt" required>
+                        </div>
+                        <button type="submit" class="btn btn-primary btn-block">Upload and Send Receipt</button>
+                    </form>
+                </div>
+                <div class="mt-4">
+                    <p>Or click the button below to send the transaction details via WhatsApp:</p>
+                    <a id="whatsapp-btn" class="btn btn-block" href="https://wa.me/+2348107725001?text=I%20have%20paid%20for%20movie%20tickets" target="_blank">Send Receipt via WhatsApp</a>
                 </div>
             </div>
         </div>
     </div>
-<div>
-</br>
-</div>
+<div><br></div>
     <footer>
-        <p>&copy; <span id="year"></span> Nibcyf - Movie Night<br>Developed by Larry Kay Designs </p>
+        <p>&copy; <span id="year"></span> Nibcyf - Movie Night<br>Developed by Larry Kay Designs</p>
     </footer>
+
     <!-- Bootstrap JS and dependencies -->
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+    <!-- Email.js Script -->
     <script>
-        // ticket-summary.js
         document.addEventListener('DOMContentLoaded', () => {
             const urlParams = new URLSearchParams(window.location.search);
             const quantity = urlParams.get('quantity');
             const totalCost = urlParams.get('totalCost');
-
+            
             document.getElementById('summary').textContent = `You have selected ${quantity} ticket(s) with a total cost of ${totalCost} Naira.`;
 
-            // Set the current year in the footer
-            document.getElementById('year').textContent = new Date().getFullYear();
-
-            // Check if the user refreshes the page or timer has expired
-            if (performance.navigation.type === performance.navigation.TYPE_RELOAD) {
-                window.location.href = "https://nibcyf-movie-night.vercel.app/";
-                return;
-            }
-
-            // Countdown timer logic
+            // Countdown logic for redirect
             let minutes = 10;
             let seconds = 0;
 
-            const countdownInterval = setInterval(function () {
-                document.getElementById('countdown').textContent = 
+            const countdownInterval = setInterval(function() {
+                document.getElementById('countdown').textContent =
                     minutes + ":" + (seconds < 10 ? "0" + seconds : seconds);
 
                 seconds--;
@@ -118,6 +126,7 @@
                     window.location.href = "https://nibcyf-movie-night.vercel.app/";
                 }
             }, 1000);
+
         });
     </script>
 </body>
